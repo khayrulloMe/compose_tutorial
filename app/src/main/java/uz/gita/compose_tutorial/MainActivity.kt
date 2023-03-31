@@ -45,7 +45,7 @@ fun MainContent(uiState: MainUiState, onEvent: (intent: MainIntent) -> Unit) {
         }
         when (uiState) {
             is MainUiState.Fail -> {
-                Text(text = "Error", color = MaterialTheme.colorScheme.error, fontSize = 32.sp)
+                Text(text = uiState.Message, color = MaterialTheme.colorScheme.error, fontSize = 32.sp)
             }
             is MainUiState.Loading -> {
                 if (uiState.isLoading) {
