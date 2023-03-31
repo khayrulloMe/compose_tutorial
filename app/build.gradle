@@ -45,20 +45,59 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/LICENSE.md'
+
+
+    }
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
 }
 
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.0'
-    implementation 'androidx.activity:activity-compose:1.6.1'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+    implementation 'androidx.activity:activity-compose:1.7.0'
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation 'androidx.compose.material3:material3:1.0.0-alpha11'
+    implementation 'androidx.compose.material3:material3:1.1.0-beta01'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+
+    def currentVersion = '1.0.0-rc03'
+    // Navigator //voyager
+    implementation "cafe.adriel.voyager:voyager-navigator:$currentVersion"
+    // BottomSheetNavigator//voyager
+    implementation "cafe.adriel.voyager:voyager-bottom-sheet-navigator:$currentVersion"
+    // TabNavigator//voyager
+    implementation "cafe.adriel.voyager:voyager-tab-navigator:$currentVersion"
+    // Transitions//voyager
+    implementation "cafe.adriel.voyager:voyager-transitions:$currentVersion"
+    // Android ViewModel integration//voyager
+    implementation "cafe.adriel.voyager:voyager-androidx:$currentVersion"
+    implementation "com.airbnb.android:lottie-compose:5.2.0"
+    // Koin integration
+    implementation "cafe.adriel.voyager:voyager-koin:$currentVersion"
+    //koin
+    def koin_version = "3.2.2"
+    def koin_android_version = "3.2.3"
+    def koin_android_compose_version = "3.2.2"
+    implementation "io.insert-koin:koin-core:$koin_version"
+    implementation "io.insert-koin:koin-test-junit5:$koin_version"
+    implementation "io.insert-koin:koin-android:$koin_android_version"
+    implementation "io.insert-koin:koin-androidx-navigation:$koin_android_version"
+    implementation "io.insert-koin:koin-androidx-compose:$koin_android_compose_version"
+    testImplementation "io.insert-koin:koin-test-junit4:$koin_version"
+    implementation "io.insert-koin:koin-androidx-workmanager:$koin_android_version"
 }
