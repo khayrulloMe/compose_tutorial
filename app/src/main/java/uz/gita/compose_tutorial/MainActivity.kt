@@ -3,9 +3,11 @@ package uz.gita.compose_tutorial
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -41,7 +43,7 @@ fun MainContent(uiState: MainUiState, onEvent: (intent: MainIntent) -> Unit) {
 
         }
         ) {
-            Text(text = "+", fontSize = 32.sp)
+            Text(text = "+", fontSize = 32.sp, modifier = Modifier)
         }
         when (uiState) {
             is MainUiState.Fail -> {
